@@ -1,0 +1,1 @@
+export const baseUrl = 'https://raw.githubusercontent.com/ahmedxgouda/job-listing-data/master/';

@@ -1,0 +1,28 @@
+:root {
+    --light-cayan-bg: hsl(180, 52%, 96%);
+    --light-cayan-filter: hsl(180, 31%, 95%);
+    --dark-cayan: hsl(180, 8%, 52%);
+    --very-dark-cayan: hsl(180, 14%, 20%);
+    --bg-header: hsl(180, 37%, 42%);
+}
+
+body {
+    font-size: 15px;
+    background-color: var(--light-cayan-bg);
+}
+
+.header {
+    background: var(--bg-header);
+    height: 11vw;
+    .img {
+        background: url(https://raw.githubusercontent.com/ahmedxgouda/job-listing-data/master/images/bg-header-desktop.svg) no-repeat;
+        opacity: 0.9;
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+    }
+}
+
+.fa-spinner {
+    color: var(--very-dark-cayan);
+}

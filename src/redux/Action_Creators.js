@@ -17,7 +17,7 @@ export const fetchJobs = () => dispatch => {
         })
         .then(response => response.json())
         .then(jobs => dispatch(addJobs(jobs)))
-        .catch(error => dispatch(jobsFailed(error.message)))
+        .catch(error => dispatch(jobsFailed(error.message)));
 }
 
 export const jobsLoading = () => ({

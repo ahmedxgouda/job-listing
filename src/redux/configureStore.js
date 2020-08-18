@@ -6,7 +6,7 @@ export const ConfigureStore = () => {
     const store = createStore(combineReducers({
         jobs: Jobs
     }), 
-        applyMiddleware(thunk) 
+        applyMiddleware(thunk)
     );
     
     return store;

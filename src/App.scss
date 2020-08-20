@@ -28,6 +28,10 @@ body {
     padding: 5% 4% 1% 4%;
 }
 
+.container-filter {
+    position: relative;
+}
+
 .box {
     margin: 0 auto 10px auto;
     display: flex;
@@ -114,6 +118,64 @@ body {
             }
         }
     }
+
+    &.filter-box {
+        position: absolute;
+        top: -41px;
+        width: 88%;
+        padding: 2%;
+    
+        .filters {
+            margin: 0 auto 0 0;
+            span {
+                padding: 5px 31px 5px 5px;
+                position: relative;
+                transition: none;
+                &:hover {
+                    color: var(--cayan);
+                    background: var(--light-cayan-bg);
+                    &:after {
+                        background-color: var(--very-dark-cayan);
+                    }
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 26px;
+                    height: 100%;
+                    background: var(--cayan) url(https://raw.githubusercontent.com/ahmedxgouda/job-listing-data/f93c9e9354e4f62b83ae8a99a45cc9fe228a1469/images/icon-remove.svg) no-repeat;
+                    margin: 0 0 0 auto;
+                    background-position: center;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transition: background-color 0.3s ease-in-out;
+                }
+            }
+        }
+    
+        .clear-btn {
+            align-self: center;
+            margin: 0 0 0 auto;
+            order: 2;
+
+            button {
+                margin: 0;
+                background: none;
+                outline: none;
+                border: none;
+                color: var(--dark-cayan);
+                cursor: pointer;
+                font-weight: 400;
+                transition: color 0.3s;
+    
+                &:hover {
+                    text-decoration: underline;
+                    color: var(--cayan);
+                }
+            }
+        }
+    }
 }
 
 .box-border {
@@ -173,10 +235,16 @@ body {
         .filters {
             align-self: inherit;
             margin: 0 auto 0 0;
+
             span {
                 padding: 3%;
                 border-radius: 9%;
             }
+        }
+
+        &.filter-box {
+            top: -93px;
+            flex-direction: row;
         }
     }
 }

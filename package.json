@@ -2,6 +2,7 @@
   "name": "job-listing",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ahmedxgouda.github.io/job-listing/",
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@fortawesome/fontawesome-free": "^5.14.0",

@@ -59,17 +59,17 @@ const RenderJob = ({job, state, addRole, addLevel, addLanguage, addTool,  handle
 
                     }>{job.level}</span>{job.languages.map(lang => (<span key={lang} onClick={
                         (e) => {
-                            if (!state.languages.includes(lang)) {
+                            if (!state.languages.includes(e.target.innerHTML)) {
                                 handleClick(e);
-                                addLanguage(state.languages.concat(lang));
+                                addLanguage(state.languages.concat(e.target.innerHTML));
                             }
                         }
 
                     }>{lang}</span>))}{job.tools !== undefined ? job.tools.map(tool => (<span key={tool} onClick={
                         (e) => {
-                            if (!state.tools.includes(tool)) {
+                            if (!state.tools.includes(e.target.innerHTML)) {
                                 handleClick(e);
-                                addTool(state.tools.concat(tool));
+                                addTool(state.tools.concat(e.target.innerHTML));
                             }
                         }
                     }>{tool}</span>)): null}
@@ -103,7 +103,6 @@ const List = ({isLoading, errMess, jobs, state, addRole, addLevel, addLanguage, 
     } else {
         return (
             <>
-                {/* eslint-disable-next-line */}
                 {jobs.filter(job => {
 
                     // Check if items existed in state
@@ -181,12 +180,12 @@ const List = ({isLoading, errMess, jobs, state, addRole, addLevel, addLanguage, 
                 }).map(job => {
                     return (
                         <RenderJob key={job.id} job={job} 
-                        state={state} 
-                        addRole={addRole} 
-                        addLevel={addLevel}
-                        addLanguage={addLanguage}
-                        addTool={addTool}
-                        handleClick={handleClick} />
+                            state={state} 
+                            addRole={addRole} 
+                            addLevel={addLevel}
+                            addLanguage={addLanguage}
+                            addTool={addTool}
+                            handleClick={handleClick} />
                     );
                 })}
             </>
@@ -272,18 +271,17 @@ class Jobs extends React.Component {
     }
 
     addLanguage = (value) => {
-        this.setState({languages: this.state.languages.concat(value)});
+        this.setState({languages: Array.from(new Set(this.state.languages.concat(value)))});
     }
 
     addTool = (value) => {
-        this.setState({tools: this.state.tools.concat(value)});
+        this.setState({tools: Array.from(new Set(this.state.tools.concat(value)))});
     }
     
     render() {
         return (
             <>
                 <div className="container container-filter" style={{display: "none"}}>
-                    {/* {console.log(this.state)} */}
                     <RenderFilterBox clearFilters={this.clearFilters} />
                 </div>
                 <motion.div className="container">
@@ -298,9 +296,8 @@ class Jobs extends React.Component {
                         handleClick={this.handleClick} />
                 </motion.div>
             </>
-    );
-}
-
+        );
+    }
 }
 
 export default Jobs;
